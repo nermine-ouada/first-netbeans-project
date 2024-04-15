@@ -8,6 +8,7 @@ import dao.ProductDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nermi
  */
-public class Servlet1 extends HttpServlet {
+public class InsertProduct extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +38,10 @@ public class Servlet1 extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Servlet1</title>");
+            out.println("<title>Servlet InsertProduct</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Servlet1 at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet InsertProduct at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -72,40 +73,22 @@ public class Servlet1 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getParameter("action");
-
-        // Check if the action is to insert or update
-        if ("insert".equals(action)) {
-            // Insertion logic
-            String label = request.getParameter("label");
-            String price = request.getParameter("price");
-            String qte = request.getParameter("qte");
-            Product p = new Product(label, Integer.parseInt(price), Integer.parseInt(qte));
-            request.setAttribute("label", label);
-            request.setAttribute("price", price);
-            request.setAttribute("qte", qte);
-            ProductDao pd = new ProductDao();
-            try {
-                pd.insertProduct(p);
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
-            RequestDispatcher rd = request.getRequestDispatcher("/detail.jsp");
+        String label = request.getParameter("label");
+        String price = request.getParameter("price");
+        String qte = request.getParameter("qte");
+        Product p = new Product(label, Integer.parseInt(price), Integer.parseInt(qte));
+        request.setAttribute("label", label);
+        request.setAttribute("price", price);
+        request.setAttribute("qte", qte);
+        ProductDao pd = new ProductDao();
+        try {
+            pd.insertProduct(p);
+            List<Product> lp = pd.selectAll();
+            request.setAttribute("lp", lp);
+            RequestDispatcher rd = request.getRequestDispatcher("/listProduct.jsp");
             rd.forward(request, response);
-        }else if ("update".equals(action)) {
-            String productId = request.getParameter("productId");
-            String label = request.getParameter("label");
-            String price = request.getParameter("price");
-            String qte = request.getParameter("qte");
-            Product updatedProduct = new Product( Integer.parseInt(productId), label, Integer.parseInt(price), Integer.parseInt(qte));
-
-            ProductDao pd = new ProductDao();
-            try {
-                pd.updateProduct(updatedProduct);
-                response.sendRedirect("success.jsp"); // Redirect to a success page after updating
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
+        } catch (SQLException e) {
+            System.out.println(e);
         }
     }
 

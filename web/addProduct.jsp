@@ -18,8 +18,8 @@
             <div>
                 <h1>Add new Product!</h1>
 
-                <form action="Servlet1" class="mt-2" method="post">
-                    <input type="hidden" name="action" value="insert"> 
+                <form action="InsertProduct" class="mt-2" method="post">
+                 
                     <input
                         type="text"
                         class="form-control"

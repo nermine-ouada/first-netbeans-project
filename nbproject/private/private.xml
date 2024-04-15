@@ -3,10 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/web/detail.jsp</file>
-            <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/src/java/Servlet1.java</file>
+            <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/src/java/dao/ProductDao.java</file>
+            <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/web/updateProduct.jsp</file>
+            <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/src/java/Model/Product.java</file>
+            <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/src/java/dao/ConnMysql.java</file>
+            <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/src/java/SelectAllProducts.java</file>
             <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/src/java/dao/Test.java</file>
-            <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/web/form.jsp</file>
+            <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/web/listProduct.jsp</file>
+            <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/src/java/UpdateProduct.java</file>
+            <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/web/addProduct.jsp</file>
+            <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/src/java/InsertProduct.java</file>
+            <file>file:/C:/Users/nermi/Documents/NetBeansProjects/InitialProject/src/java/DeleteProduct.java</file>
         </group>
     </open-files>
 </project-private>
