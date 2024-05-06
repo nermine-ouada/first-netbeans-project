@@ -59,16 +59,7 @@ public class UpdateProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ProductDao pd = new ProductDao();
-        int id = Integer.parseInt(request.getParameter("id"));
-        try {
-            Product p = pd.selectProduct(id);
-            request.setAttribute("p", p);
-            RequestDispatcher rd = request.getRequestDispatcher("/updateProduct.jsp");
-            rd.forward(request, response);
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
+       processRequest(request,response); 
     }
 
     /**
@@ -86,16 +77,18 @@ public class UpdateProduct extends HttpServlet {
         String label = request.getParameter("label");
         int price = Integer.parseInt(request.getParameter("price"));
         int qte = Integer.parseInt(request.getParameter("qte"));
-                int id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("id"));
 
         Product updatedProduct = new Product(id, label, (price), (qte));
         ProductDao pd = new ProductDao();
         try {
             pd.updateProduct(updatedProduct);
-            List<Product> lp = pd.selectAll();
+            /* List<Product> lp = pd.selectAll();
             request.setAttribute("lp", lp);
             RequestDispatcher rd = request.getRequestDispatcher("/listProduct.jsp");
-            rd.forward(request, response);
+            rd.forward(request, response);*/
+            response.sendRedirect(request.getContextPath() + "/");
+
         } catch (SQLException e) {
             System.out.println(e);
         }

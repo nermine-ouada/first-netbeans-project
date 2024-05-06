@@ -83,10 +83,12 @@ public class InsertProduct extends HttpServlet {
         ProductDao pd = new ProductDao();
         try {
             pd.insertProduct(p);
-            List<Product> lp = pd.selectAll();
+              /*    List<Product> lp = pd.selectAll();
             request.setAttribute("lp", lp);
             RequestDispatcher rd = request.getRequestDispatcher("/listProduct.jsp");
-            rd.forward(request, response);
+            rd.forward(request, response);*/
+            response.sendRedirect(request.getContextPath() + "/"); 
+
         } catch (SQLException e) {
             System.out.println(e);
         }

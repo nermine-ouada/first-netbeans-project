@@ -18,8 +18,9 @@
             <div>
                 <h1>Add new Product!</h1>
 
-                <form action="InsertProduct" class="mt-2" method="post">
-                 
+                <form action="allMethods" class="mt-2" method="post">
+                     <input type="hidden" name="action" value="insert">
+
                     <input
                         type="text"
                         class="form-control"
@@ -46,6 +47,7 @@
                         required
                         />
                     <div class="text-center mt-2 ">
+                        
                         <button type="submit" class="btn btn-info">
                             Add                        </button>
                     </div>

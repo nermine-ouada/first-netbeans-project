@@ -77,10 +77,11 @@ public class DeleteProduct extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         try {
             pd.deleteProduct(id);
-            List<Product> lp = pd.selectAll();
+                /*    List<Product> lp = pd.selectAll();
             request.setAttribute("lp", lp);
             RequestDispatcher rd = request.getRequestDispatcher("/listProduct.jsp");
-            rd.forward(request, response);
+            rd.forward(request, response);*/
+            response.sendRedirect(request.getContextPath() + "/"); 
 
         } catch (SQLException e) {
             System.out.println(e);

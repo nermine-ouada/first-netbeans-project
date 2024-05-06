@@ -59,7 +59,9 @@
                             <td><%= p.getPrice()%></td>
                             <td><%= p.getQte()%></td>
                             <td>
-                                <form action="DeleteProduct" method="post">
+                                <form action="allMethods" method="post">
+                                    <input type="hidden" name="action" value="delete">
+
                                     <a href="updateProduct.jsp?id=<%= p.getId()%>" class="btn btn-info">Update</a>
                                     <input value="<%= p.getId()%>" name="id" hidden="true"/>  
                                     <button type="submit" class="btn btn-info">Delete</button>
